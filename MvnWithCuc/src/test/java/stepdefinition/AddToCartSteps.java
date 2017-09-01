@@ -30,7 +30,7 @@ static WebDriver driver;
 		 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.get(baseUrl);
-		Thread.sleep(2000);
+		Thread.sleep(2500);
 	   }	      
 	
 
