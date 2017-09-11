@@ -13,6 +13,6 @@ import cucumber.api.junit.Cucumber;
 			 glue={"stepdefinition"}
 			
 			)
-	public class AutoCorrectAT {
+	public class ChromeLoginAT {
 
 }

@@ -1,14 +1,29 @@
 package datas;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 
 public class Datas {
 	public static WebElement element = null;
 
 
+		public void initializeFirefoxDriver(WebDriver driver) throws InterruptedException{
+			String baseUrl="http://automationpractice.com/index.php";
+			System.setProperty("webdriver.gecko.driver","C:\\kgruza\\geckodriver\\geckodriver-v0.17.0-win32\\geckodriver.exe");
+			FirefoxOptions options = new FirefoxOptions();
+			options.setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
+			driver = new FirefoxDriver(options);
+			 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			driver.get(baseUrl);
+			Thread.sleep(5000);
+		}
+	
 		public static void clickOnButton(WebDriver driver){
 			element=driver.findElement(By.xpath("//a[contains(text(),'Sign in')]"));
 			element.click();

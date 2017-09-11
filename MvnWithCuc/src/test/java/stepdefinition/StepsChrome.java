@@ -14,9 +14,9 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import datas.Datas;
 
-public class StepsIE {
+public class StepsChrome {
 static WebDriver driver;
-	@Given("^The http://automationpractice\\.com/index\\.php website is openIE$")
+	@Given("^The http://automationpractice\\.com/index\\.php website is openChrome$")
 	public void the_http_automationpractice_com_index_php_website_is_openIE() throws InterruptedException  {
 		String baseUrl="http://automationpractice.com/index.php";
 		System.setProperty("webdriver.chrome.driver", "C:\\kgruza\\chromedriver.exe");
@@ -28,13 +28,13 @@ static WebDriver driver;
 	    
 	}
 
-	@When("^User clicks on the Sign Up buttonIE$")
+	@When("^User clicks on the Sign Up buttonChrome$")
 	public void user_clicks_on_the_Sign_Up_buttonIE()  {
 		Datas.clickOnButton(driver);
 	    
 	}
 
-	@When("^User provides wrong email and/or passwordIE$")
+	@When("^User provides wrong email and/or passwordChrome$")
 	public void user_provides_wrong_email_and_or_passwordIE() throws InterruptedException  {
 		Datas.fillEmail(driver, "cokolwiek");
 		Datas.fillPassword(driver, "cokolwiek2");
@@ -43,7 +43,7 @@ static WebDriver driver;
 	   
 	}
 
-	@Then("^Login will failIE$")
+	@Then("^Login will failChrome$")
 	public void login_will_failIE() {
 		System.out.println(driver.findElement(By.xpath("//div[contains(@class,'alert')]//p")).isDisplayed()+"on Chrome");
 	   driver.quit();	

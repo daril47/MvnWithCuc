@@ -12,6 +12,6 @@ import cucumber.api.junit.Cucumber;
 		 glue={"stepdefinition"}
 		
 		)
-public class RunTestAT {
+public class FFLoginAT {
 	
 }

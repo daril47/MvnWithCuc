@@ -13,21 +13,15 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 
-public class Steps   {
+public class StepsFF   {
 
 	static WebDriver driver;
-	
+	Datas datas=new Datas();
 	@Given("^The http://automationpractice\\.com/index\\.php website is open$")
 	public void the_http_automationpractice_com_index_php_website_is_open() throws InterruptedException  {
-		String baseUrl="http://automationpractice.com/index.php";
-		System.setProperty("webdriver.gecko.driver","C:\\kgruza\\geckodriver\\geckodriver-v0.17.0-win32\\geckodriver.exe");
-		FirefoxOptions options = new FirefoxOptions();
-		options.setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
-		driver = new FirefoxDriver(options);
-		 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
-		driver.get(baseUrl);
-		Thread.sleep(2000);
+	
+		datas.initializeFirefoxDriver(driver);
+	
 	   }
 
 	@When("^User clicks on the Sign Up button$")
