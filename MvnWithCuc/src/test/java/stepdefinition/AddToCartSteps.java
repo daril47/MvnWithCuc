@@ -19,6 +19,7 @@ import cucumber.api.java.en.When;
 public class AddToCartSteps {
 	
 static WebDriver driver;
+Datas datas = new Datas();
 //Actions action=new Actions(driver);
 	@Given("^User is on main page using firefox$")
 	public void user_is_on_main_page_using_firefox() throws InterruptedException   {
@@ -37,35 +38,35 @@ static WebDriver driver;
 	@When("^User choose blouses from a woman section$")
 	public void user_choose_blouses_from_a_woman_section() throws InterruptedException  {
 		
-		Datas.WomenButton(driver).click();
-		Datas.singleSleep(driver);
-		Datas.clickOnTops(driver);
-		Datas.singleSleep(driver);
-		Datas.clickOnBlouse(driver);
+		datas.WomenButton(driver).click();
+		datas.singleSleep(driver);
+		datas.clickOnTops(driver);
+		datas.singleSleep(driver);
+		datas.clickOnBlouse(driver);
 	    
 	   
 	}
 
 	@When("^User choose the blouse that he likes$")
 	public void user_choose_the_blouse_that_he_likes() throws InterruptedException{
-		Datas.blouseImg(driver).click();
+		datas.blouseImg(driver).click();
 Thread.sleep(1500);
 	}
 
 	@When("^User clicks on Add to cart button$")
 	public void user_clicks_on_Add_to_cart_button()  {
-	   Datas.clickOnAdd(driver);
+	   datas.clickOnAdd(driver);
 	    
 	}
 
 	@When("^User decides to continue shoping$")
 	public void user_decides_to_continue_shoping()  {
-Datas.clickOnContinue(driver);	    
+datas.clickOnContinue(driver);	    
 	}
 
 	@Then("^The chosen product should be added to cart$")
 	public void the_chosen_product_should_be_added_to_cart() {
-		Datas.Cart(driver).click();
+		datas.Cart(driver).click();
 		driver.close();
 	}
 	
@@ -82,32 +83,32 @@ Datas.clickOnContinue(driver);
 
 	@When("^User choose blouses from a woman sectionChrome$")
 	public void user_choose_blouses_from_a_woman_sectionChrome() throws InterruptedException   {
-		Datas.WomenButton(driver).click();
-		Datas.singleSleep(driver);
-		Datas.clickOnTops(driver);
-		Datas.singleSleep(driver);
-		Datas.clickOnBlouse(driver);	   
+		datas.WomenButton(driver).click();
+		datas.singleSleep(driver);
+		datas.clickOnTops(driver);
+		datas.singleSleep(driver);
+		datas.clickOnBlouse(driver);	   
 	}
 
 	@When("^User choose the blouse that he likesChrome$")
 	public void user_choose_the_blouse_that_he_likesChrome() throws InterruptedException   {
-		Datas.blouseImg(driver).click();
+		datas.blouseImg(driver).click();
 		Thread.sleep(1500);	     
 	}
 
 	@When("^User clicks on Add to cart buttonChrome$")
 	public void user_clicks_on_Add_to_cart_buttonChrome()  {
-		Datas.clickOnAdd(driver);	  
+		datas.clickOnAdd(driver);	  
 	}
 
 	@When("^User decides to continue shopingChrome$")
 	public void user_decides_to_continue_shopingChrome()  {
-		Datas.clickOnContinue(driver);		   
+		datas.clickOnContinue(driver);		   
 	}
 
 	@Then("^The chosen product should be added to cartChrome$")
 	public void the_chosen_product_should_be_added_to_cartChrome()   {
-		Datas.Cart(driver).click();
+		datas.Cart(driver).click();
 		driver.close();
 	}
 

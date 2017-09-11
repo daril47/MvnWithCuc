@@ -16,6 +16,7 @@ import datas.Datas;
 
 public class StepsChrome {
 static WebDriver driver;
+Datas datas=new Datas();
 	@Given("^The http://automationpractice\\.com/index\\.php website is openChrome$")
 	public void the_http_automationpractice_com_index_php_website_is_openIE() throws InterruptedException  {
 		String baseUrl="http://automationpractice.com/index.php";
@@ -30,16 +31,15 @@ static WebDriver driver;
 
 	@When("^User clicks on the Sign Up buttonChrome$")
 	public void user_clicks_on_the_Sign_Up_buttonIE()  {
-		Datas.clickOnButton(driver);
+		datas.clickOnButton(driver);
 	    
 	}
 
 	@When("^User provides wrong email and/or passwordChrome$")
 	public void user_provides_wrong_email_and_or_passwordIE() throws InterruptedException  {
-		Datas.fillEmail(driver, "cokolwiek");
-		Datas.fillPassword(driver, "cokolwiek2");
-		Datas.clickOnSubmit(driver);
-	    Datas.singleSleep(driver);
+		datas.fillLoginDatas(driver, "randomLogin", "randomPassword");
+		datas.clickOnSubmit(driver);
+	    datas.singleSleep(driver);
 	   
 	}
 
