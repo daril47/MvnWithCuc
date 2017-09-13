@@ -22,7 +22,7 @@ Datas datas=new Datas();
 		String baseUrl="http://automationpractice.com/index.php";
 		System.setProperty("webdriver.chrome.driver", "C:\\kgruza\\chromedriver.exe");
 		 driver = new ChromeDriver();
-		 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.get(baseUrl);
 		Thread.sleep(2000);
