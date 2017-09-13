@@ -1,0 +1,149 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>tests</groupId>
+	<artifactId>MvnCuc</artifactId>
+	<version>1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>MvnWithCuc</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<cucumber.version>1.2.5</cucumber.version>
+		<selenium.version>3.4.0</selenium.version>
+		<maven.compiler.version>3.3</maven.compiler.version>
+	</properties>
+
+	<dependencies>
+	<dependency>
+    <groupId>org.jdom</groupId>
+    <artifactId>jdom2</artifactId>
+    <version>2.0.6</version>
+</dependency>
+  <dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-java</artifactId>
+    <version>3.4.0</version>
+</dependency>
+<dependency>
+    <groupId>info.cukes</groupId>
+    <artifactId>cucumber-java</artifactId>
+    <version>1.2.5</version>
+</dependency>
+<dependency>
+    <groupId>info.cukes</groupId>
+    <artifactId>cucumber-junit</artifactId>
+    <version>1.2.5</version>
+    <scope>test</scope>
+</dependency>
+<dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.12</version>
+    <scope>test</scope>
+</dependency>
+
+  </dependencies>
+ <build>
+  <plugins>
+  <plugin>
+  <groupId>com.github.temyers</groupId>
+  <artifactId>cucumber-jvm-parallel-plugin</artifactId>
+  <version>1.2.1</version>
+  <executions>
+    <execution>
+      <id>generateRunners</id>
+      <phase>validate</phase>
+      <goals>
+        <goal>generateRunners</goal>
+      </goals>
+      <configuration>
+          <!-- Mandatory -->
+          <!-- comma separated list of package names to scan for glue code -->
+         <glue>stepdefinition</glue>
+         <!-- These are the default values -->
+          <!-- Where to output the generated tests -->
+           <outputDirectory>${project.build.directory}/generated-test-sources/cucumber</outputDirectory>
+           <!-- The diectory, which must be in the root of the runtime classpath, containing your feature files.  -->
+          <featuresDirectory>src/test/java/features/</featuresDirectory>
+           <!-- Directory where the cucumber report files shall be written  -->
+          <cucumberOutputDir>target/cucumber-parallel</cucumberOutputDir>
+          <!-- comma separated list of output formats. For JUnit Rerun json,html,rerun are mandatory-->
+         <format>json,html,rerun</format>
+         <!-- CucumberOptions.strict property -->
+         <strict>true</strict>
+         <!-- CucumberOptions.monochrome property -->
+         <monochrome>true</monochrome>
+         <!-- The tags to run, maps to CucumberOptions.tags property -->
+         <tags>"@LoginFirefox", "@LoginChrome","@CartFirefox","@CartChrome"</tags>
+         <!-- If set to true, only feature files containing the required tags shall be generated. -->
+         <!-- Excluded tags (~@notMe) are ignored. -->
+         <filterFeaturesByTags>false</filterFeaturesByTags>
+         <!-- Generate TestNG runners instead of JUnit ones. --> 
+         <useTestNG>false</useTestNG>
+         <!-- The naming scheme to use for the generated test classes.  One of 'simple' or 'feature-title' --> 
+         <namingScheme>simple</namingScheme>
+         <!-- The class naming pattern to use.  Only required/used if naming scheme is 'pattern'.-->
+         <namingPattern>Parallel{c}AT</namingPattern>
+         <!-- Generate JUnitReRun runners instead of JUnit and TestNG single runner. --> 
+         <useJUnitReRun>true</useJUnitReRun>
+         <!-- It is meaningless to keep reruning without looking for root cause of the failure. Test case/features/scenarios won't pass magically so you can use max 5 rerun. -->
+               <retryCount>4</retryCount>
+      </configuration>
+    </execution>
+  </executions>
+</plugin>
+
+<plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-surefire-plugin</artifactId>
+			    <version>2.19</version>
+			    <configuration>
+					<additionalClasspathElements>
+						<additionalClasspathElement>resources</additionalClasspathElement>
+					</additionalClasspathElements>
+			        <forkCount>4</forkCount>
+			        <reuseForks>true</reuseForks>
+			        <includes>
+			            <include>**/*AT.class</include>
+			        </includes>
+
+			    </configuration>
+			</plugin>
+   </plugins>
+  <pluginManagement>
+  	<plugins>
+  		<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+  		<plugin>
+  			<groupId>org.eclipse.m2e</groupId>
+  			<artifactId>lifecycle-mapping</artifactId>
+  			<version>1.0.0</version>
+  			<configuration>
+  				<lifecycleMappingMetadata>
+  					<pluginExecutions>
+  						<pluginExecution>
+  							<pluginExecutionFilter>
+  								<groupId>com.github.temyers</groupId>
+  								<artifactId>
+  									cucumber-jvm-parallel-plugin
+  								</artifactId>
+  								<versionRange>[1.2.1,)</versionRange>
+  								<goals>
+  									<goal>generateRunners</goal>
+  								</goals>
+  							</pluginExecutionFilter>
+  							<action>
+  								<execute/>
+  							</action>
+  						</pluginExecution>
+  					</pluginExecutions>
+  				</lifecycleMappingMetadata>
+  			</configuration>
+  		</plugin>
+  	</plugins>
+  </pluginManagement>
+ </build>
+</project>
