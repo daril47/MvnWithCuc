@@ -21,6 +21,7 @@ public class Datas {
 			driver.get(baseUrl);
 			}
 	
+		
 		public  void clickOnButton(WebDriver driver){
 			element=driver.findElement(By.xpath("//a[contains(text(),'Sign in')]"));
 			element.click();
