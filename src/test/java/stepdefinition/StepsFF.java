@@ -20,12 +20,14 @@ public class StepsFF extends Datas {
 	@Given("^The http://automationpractice\\.com/index\\.php website is open$")
 	public void the_http_automationpractice_com_index_php_website_is_open() throws InterruptedException {
 		datas.initializeFirefoxDriver(datas.driver);
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 	}
 
 	@When("^User clicks on the Sign Up button$")
 	public void user_clicks_on_the_Sign_Up_button() {
-		datas.clickOnButton(datas.driver);
+
+//		datas.clickOnSignInButton(datas.driver);
+				datas.clickOnButton(datas.driver);
 	}
 
 	@When("^User provides wrong email and/or password$")

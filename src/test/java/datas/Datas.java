@@ -9,11 +9,20 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
+
 import static org.junit.Assert.*;
 
 public class Datas {
+	
+	
+	
 	public WebElement element;
 	public WebDriver driver;
+	
+	
 	
 	public void initializeFirefoxDriver(WebDriver driver) {
 		String baseUrl = "http://automationpractice.com/index.php";
@@ -31,10 +40,12 @@ public class Datas {
 		driver.get(baseUrl);
 	}
 	
-	public void loginFailValidation(WebDriver driver){
-		Assert.assertArrayEquals("Login failed", expecteds, actuals);
-	}
+	@FindBy(xpath="//a[contains(text(),'Sign in')]")
+	public WebElement signInButton;
 	
+    public void clickOnSignInButton(WebDriver driver){
+        signInButton.click();
+}
 	
 	public void clickOnButton(WebDriver driver) {
 		element = driver.findElement(By.xpath("//a[contains(text(),'Sign in')]"));
