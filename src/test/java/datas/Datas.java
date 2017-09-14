@@ -59,7 +59,7 @@ public class Datas {
 		element.sendKeys(password);
 	}
 
-	
+	//wa
 	public void clickOnSubmit(WebDriver driver) {
 		element = driver.findElement(By.id("SubmitLogin"));
 		element.click();
