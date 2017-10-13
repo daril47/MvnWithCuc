@@ -16,7 +16,7 @@ public class addToCartDatas {
 	By scrollElement=By.xpath("//img[@alt='Blouse' and contains(@class,'replace')]");
 	By blouseImage=By.xpath("//img[@alt='Blouse' and contains(@class,'replace')]");
 	By addButton = By.xpath("//span[text()='Add to cart']");
-	By continueButton=By.xpath("//div[@class='button-container']/span");
+	By continueButton=By.xpath("//span[contains(@class,'continue')]");
 	By cartButton=By.xpath("//b[text()='Cart']");
 	
 	public addToCartDatas(WebDriver driver){
@@ -63,7 +63,7 @@ public class addToCartDatas {
 	
 	public void initializeFirefoxDriver(WebDriver driver) {
 		String baseUrl = "http://automationpractice.com/index.php";
-		System.setProperty("webdriver.gecko.driver","C:\\kgruza\\geckodriver\\geckodriver-v0.17.0-win32\\geckodriver.exe");
+		System.setProperty("webdriver.gecko.driver","Drivers\\geckodriver.exe");
 		driver = new FirefoxDriver();
 		this.driver = driver;
 		driver.get(baseUrl);
@@ -75,14 +75,14 @@ public class addToCartDatas {
 
 	public void initializeChromeDriver(WebDriver driver) {
 		String baseUrl = "http://automationpractice.com/index.php";
-		System.setProperty("webdriver.chrome.driver", "C:\\kgruza\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver","Drivers\\chromedriver.exe");
 		driver = new ChromeDriver();
 		this.driver = driver;
 		driver.manage().window().maximize();
 		driver.get(baseUrl);
 	}
 	
-
+	
 
 	public void singleSleep(WebDriver driver) throws InterruptedException {
 		Thread.sleep(3000);

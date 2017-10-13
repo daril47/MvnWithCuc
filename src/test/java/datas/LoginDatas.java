@@ -44,7 +44,7 @@ public class LoginDatas {
 	
 	public void initializeFirefoxDriver(WebDriver driver) {
 		String baseUrl = "http://automationpractice.com/index.php";
-		System.setProperty("webdriver.gecko.driver","C:\\kgruza\\geckodriver\\geckodriver-v0.17.0-win32\\geckodriver.exe");
+		System.setProperty("webdriver.gecko.driver","Drivers\\geckodriver.exe");
 		driver = new FirefoxDriver();
 		this.driver = driver;
 		driver.get(baseUrl);
@@ -56,7 +56,7 @@ public class LoginDatas {
 
 	public void initializeChromeDriver(WebDriver driver) {
 		String baseUrl = "http://automationpractice.com/index.php";
-		System.setProperty("webdriver.chrome.driver", "C:\\kgruza\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver","Drivers\\chromedriver.exe");
 		driver = new ChromeDriver();
 		this.driver = driver;
 		driver.get(baseUrl);

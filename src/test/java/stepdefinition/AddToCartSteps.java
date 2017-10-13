@@ -51,8 +51,9 @@ addToCartDatas cartDatas = new addToCartDatas(driver);
 	}
 
 	@When("^User clicks on Add to cart button$")
-	public void user_clicks_on_Add_to_cart_button()  {
+	public void user_clicks_on_Add_to_cart_button() throws InterruptedException  {
 	cartDatas.clickOnAddButton();
+	Thread.sleep(3000);
 		
 	    
 	}
@@ -91,8 +92,8 @@ addToCartDatas cartDatas = new addToCartDatas(driver);
 
 	@When("^User clicks on Add to cart buttonChrome$")
 	public void user_clicks_on_Add_to_cart_buttonChrome() throws InterruptedException   {
-		Thread.sleep(1500);
-		cartDatas.switchToFrame();
+//		Thread.sleep(1500);
+//		cartDatas.switchToFrame();
 		Thread.sleep(1500);
 		cartDatas.clickOnAddButton();	  
 	}
