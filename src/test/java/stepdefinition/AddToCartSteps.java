@@ -26,7 +26,7 @@ addToCartDatas cartDatas = new addToCartDatas(driver);
 	public void user_is_on_main_page_using_firefox() throws InterruptedException   {
 		cartDatas.initializeFirefoxDriver(driver);
 		Thread.sleep(2500);
-		System.out.println("Firefox Driver initialized");
+		System.out.println("Firefox Driver initialized.");
 	   }	      
 	
 
