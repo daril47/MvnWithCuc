@@ -18,6 +18,7 @@ public class addToCartDatas {
 	By addButton = By.xpath("//span[text()='Add to cart']");
 	By continueButton=By.xpath("//span[contains(@class,'continue')]");
 	By cartButton=By.xpath("//b[text()='Cart']");
+	By blouseImageInCart=By.xpath("//img[@alt='Blouse']");
 	
 	public addToCartDatas(WebDriver driver){
 		this.driver=driver;
@@ -29,6 +30,15 @@ public class addToCartDatas {
 	
 	public void clickOnTopsButton(){
 		driver.findElement(topsButton).click();
+		}
+	
+	public void checkIfProductIsAdded(){
+		if(driver.findElement(blouseImageInCart).isDisplayed()){
+			System.out.println("Product has been successfully added to cart.");
+		}
+		else{
+			System.out.println("No product in cart.");
+		}
 	}
 	
 	public void scrollToElement(){

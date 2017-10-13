@@ -41,7 +41,7 @@ public class StepsFF  {
 	
 	@Then("^Login will fail$")
 	public void login_will_fail() throws InterruptedException {
-		
+		objLoginDatas.loginFailureCheck();
 		objLoginDatas.teardown();
 
 	}

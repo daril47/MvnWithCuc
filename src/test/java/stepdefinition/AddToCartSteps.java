@@ -66,7 +66,8 @@ addToCartDatas cartDatas = new addToCartDatas(driver);
 	@Then("^The chosen product should be added to cart$")
 	public void the_chosen_product_should_be_added_to_cart() throws InterruptedException {
 		cartDatas.clickOnCartButton();
-		Thread.sleep(3000);
+		Thread.sleep(1500);
+		cartDatas.checkIfProductIsAdded();
 		cartDatas.teardown();
 	}
 	

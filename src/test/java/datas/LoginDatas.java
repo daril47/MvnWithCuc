@@ -23,12 +23,21 @@ public class LoginDatas {
 	 By userName=By.id("email");
 	 By loginPassword=By.id("passwd");
 	 By submitButton=By.id("SubmitLogin");
-	 public By failureMessage=By.xpath("//div[contains(@class,'alert')]//p");
+	 By failureMessage=By.xpath("//div[contains(@class,'alert')]");
 	 
 	 public LoginDatas(WebDriver driver){
 		 this.driver=driver;
 	 }
 	 	 	 
+	 public void loginFailureCheck(){
+		 if(driver.findElement(failureMessage).isDisplayed()){
+			 System.out.println("Login failed, message displayed - just as planned.");
+		 }
+			 else{
+				 System.out.println("Error message is missing.");
+				 }
+	 	}
+	 
 	 public void clickOnSignInButton(){
 		 driver.findElement(signInButton).click();
 	 }
@@ -59,6 +68,7 @@ public class LoginDatas {
 		System.setProperty("webdriver.chrome.driver","Drivers\\chromedriver.exe");
 		driver = new ChromeDriver();
 		this.driver = driver;
+		driver.manage().window().maximize();
 		driver.get(baseUrl);
 	}
 	

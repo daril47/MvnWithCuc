@@ -39,7 +39,7 @@ public class StepsChrome {
 
 	@Then("^Login will failChrome$")
 	public void login_will_failIE() {
-		//System.out.println(datas.driver.findElement(By.xpath("//div[contains(@class,'alert')]//p")).isDisplayed()+"on Chrome");
+		ObjLoginDatasChrome.loginFailureCheck();
 		ObjLoginDatasChrome.teardown();	
 	}
 	
