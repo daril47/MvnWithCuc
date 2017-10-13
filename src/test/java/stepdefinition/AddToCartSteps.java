@@ -2,6 +2,7 @@ package stepdefinition;
 
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -21,6 +22,7 @@ public class AddToCartSteps {
 	
 WebDriver driver;
 addToCartDatas cartDatas = new addToCartDatas(driver);
+
 
 	@Given("^User is on main page using firefox$")
 	public void user_is_on_main_page_using_firefox() throws InterruptedException   {
@@ -43,13 +45,15 @@ addToCartDatas cartDatas = new addToCartDatas(driver);
 
 	@When("^User choose the blouse that he likes$")
 	public void user_choose_the_blouse_that_he_likes() throws InterruptedException{
+		Thread.sleep(1500);
 		cartDatas.clickOnBlouseImage();
-Thread.sleep(1500);
+		Thread.sleep(1500);
 	}
 
 	@When("^User clicks on Add to cart button$")
 	public void user_clicks_on_Add_to_cart_button()  {
-		cartDatas.clickOnAddButton();
+	cartDatas.clickOnAddButton();
+		
 	    
 	}
 
@@ -80,12 +84,16 @@ Thread.sleep(1500);
 
 	@When("^User choose the blouse that he likesChrome$")
 	public void user_choose_the_blouse_that_he_likesChrome() throws InterruptedException   {
+		cartDatas.scrollToElement();
 		cartDatas.clickOnBlouseImage();
-		Thread.sleep(1500);   
+		   
 	}
 
 	@When("^User clicks on Add to cart buttonChrome$")
-	public void user_clicks_on_Add_to_cart_buttonChrome()  {
+	public void user_clicks_on_Add_to_cart_buttonChrome() throws InterruptedException   {
+		Thread.sleep(1500);
+		cartDatas.switchToFrame();
+		Thread.sleep(1500);
 		cartDatas.clickOnAddButton();	  
 	}
 
