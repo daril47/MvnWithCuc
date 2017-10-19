@@ -1,4 +1,3 @@
-
 Feature: Adding a product to cart
 @Cart
 	Scenario: Adding a blouse to cart
