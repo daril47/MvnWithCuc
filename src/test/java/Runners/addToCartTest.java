@@ -1,4 +1,4 @@
-package tests.MvnCuc;
+package Runners;
 
 import org.junit.runner.RunWith;
 
@@ -7,12 +7,11 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features ="src/test/java/features",
-		tags={"@LoginFirefox"},
-		 glue={"stepdefinition"}
-		
+		features="Features",
+		tags={"@Cart"},
+		glue={"driversIni","stepDefinitions"}
 		)
-public class FFLoginAT {
-	
+
+public class addToCartTest {
+
 }
-	
